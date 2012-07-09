@@ -121,20 +121,6 @@ ZEND_NAMED_FUNCTION(php_ftdi_set_bitmode)
     RETURN_LONG((long) ret);
 }
 
-ZEND_NAMED_FUNCTION(php_ftdi_free)
-{
-    struct ftdi_context *context;
-    zval *zcontext;
-    
-    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rll", &zcontext) == FAILURE) {
-        return;
-    }
-
-    ZEND_FETCH_RESOURCE(context, struct ftdi_context*, &zcontext, -1, PHP_FTDI_CONTEXT_RES_NAME, le_php_ftdi_context);
-
-    ftdi_free(context);
-}
-
 ZEND_NAMED_FUNCTION(php_ftdi_write_data)
 {
     struct ftdi_context *context;
@@ -167,7 +153,6 @@ zend_function_entry php_ftdi_functions[] = {
   ZEND_NAMED_FE(ftdi_usb_close, php_ftdi_usb_close, NULL)
   ZEND_NAMED_FE(ftdi_set_bitmode, php_ftdi_set_bitmode, NULL)
   ZEND_NAMED_FE(ftdi_write_data, php_ftdi_write_data, NULL)
-  ZEND_NAMED_FE(ftdi_free, php_ftdi_free, NULL)
   { NULL, NULL, NULL }
 };
 
