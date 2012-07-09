@@ -2,7 +2,7 @@
 
 namespace Ftdi;
 
-class UsbDevice()
+class UsbDevice
 {
     const BITMODE_BITBANG = FTDI_BITMODE_BITBANG;
     const BITMODE_CBUS    = FTDI_BITMODE_CBUS;
@@ -19,6 +19,8 @@ class UsbDevice()
         $this->vendorId  = $vendorId;
         $this->productId = $productId;
         $this->handle    = ftdi_init();
+
+        ftdi_usb_open($this->handle, $vendorId, $productId);
     }
 
     public function setBitMode($mask, $mode)
@@ -35,4 +37,4 @@ class UsbDevice()
     {
         ftdi_usb_close($this->handle);
     }
-}
+ }
