@@ -3,6 +3,11 @@ php_ftdi
 
 Libftdi PHP extension for talking to FTDI devices.
 
+Usage
+-----
+
+Please see `examples/simple.php` for a basic usage example and `examples/Ftdi/UsbDevice.php` for an object oriented approach.
+
 Build instructions
 ------------------
 ```
