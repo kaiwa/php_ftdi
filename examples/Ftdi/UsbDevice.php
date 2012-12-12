@@ -12,7 +12,9 @@ class UsbDevice
     const BITMODE_SYNCBB  = FTDI_BITMODE_SYNCBB;
     const BITMODE_SYNCFF  = FTDI_BITMODE_SYNCFF;
 
-    protected $vendorId, $productId;
+    protected $handle;
+    protected $vendorId
+    protected $productId;
 
     public function __construct($vendorId, $productId)
     {
